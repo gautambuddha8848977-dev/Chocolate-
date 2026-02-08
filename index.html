@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate Day 🤎</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: #f4efe9;
+  font-family: 'Dancing Script', cursive;
+  color: #3b2a23;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 820px;
+  margin: auto;
+  padding: 90px 25px 120px;
+}
+
+.opening {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.opening h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.opening p {
+  font-size: 1.6rem;
+  opacity: 0.85;
+}
+
+.section {
+  font-size: 1.6rem;
+  line-height: 2;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.6s ease;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ending {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.8rem;
+}
+
+.chocolate {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.chocolate img {
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  top: -10%;
+  font-size: 20px;
+  opacity: 0.3;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Opening -->
+  <div class="opening">
+    <h1>Chocolate Day made me think of you 🤎</h1>
+    <p>Not because it’s sweet — but because it lingers.</p>
+  </div>
+
+  <!-- Sections -->
+  <div class="section reveal">
+    Being with you feels like comfort I didn’t know I was missing.
+    Like the quiet relief at the end of a long day.
+    You don’t overwhelm my heart — you calm it.
+  </div>
+
+  <div class="section reveal">
+    It’s never about the big moments.
+    It’s the ordinary ones that stay with me —
+    the way you exist beside me,
+    the way you make life feel softer just by being you.
+  </div>
+
+  <div class="section reveal">
+    Some things don’t fade with time.
+    They don’t lose their meaning.
+    They become deeper, steadier, more certain.
+    That’s what loving you feels like.
+  </div>
+
+  <div class="section reveal">
+    Thank you for being gentle with my heart.
+    For loving me in ways that feel safe, warm, and real.
+    For being the sweetness I never have to search for.
+  </div>
+
+  <!-- Ending -->
+  <div class="ending reveal">
+    <p><strong>“If love had a taste, it would be you.”</strong></p>
+    <p>Happy Chocolate Day, my wife 🤎</p>
+  </div>
+
+  <!-- Chocolate image -->
+  <div class="chocolate reveal">
+    <img src="chocolate.jpg" alt="Chocolate for you">
+  </div>
+
+</div>
+
+<script>
+/* Reveal on scroll */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 120) {
+      el.classList.add("show");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+/* Slow floating hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (12 + Math.random() * 10) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 22000);
+}
+setInterval(createHeart, 1800);
+</script>
+
+</body>
+</html>
